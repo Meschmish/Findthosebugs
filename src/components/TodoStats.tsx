@@ -6,7 +6,8 @@ interface TodoStatsProps {
 
 export default function TodoStats({ todos }: TodoStatsProps) {
   const total = todos.length
-  const remaining = todos.filter((todo) => todo.completed).length
+  // remaining ska visa "not" completed
+  const remaining = todos.filter((todo) => !todo.completed).length
 
   return (
     <p className="todo-stats">
