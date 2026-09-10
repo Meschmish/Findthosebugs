@@ -2,7 +2,8 @@ import type { Todo } from '../types'
 
 interface TodoItemProps {
   todo: Todo
-  onToggle: () => void
+  /*OnToggle behöver ta emot ett id */
+  onToggle: (id:number) => void
   onDelete: () => void
 }
 
@@ -10,7 +11,8 @@ export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
   return (
     <li className="todo-item">
       <label>
-        <input type="checkbox" checked={todo.completed} onChange={onToggle} />
+        {/*När onToggle tagit emot ett id och typat nummer sätts detta som props*/}.
+        <input type="checkbox" checked={todo.completed} onChange={() => onToggle(todo.id)}  />
         <span style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
           {todo.text}
         </span>
