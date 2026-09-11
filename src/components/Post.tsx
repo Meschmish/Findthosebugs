@@ -16,7 +16,7 @@ export default function Post({ id }: PostProps) {
 
   useEffect(() => {
     async function fetchPost() {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/1`)
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
       const data = await response.json()
       setPost(data)
     }
